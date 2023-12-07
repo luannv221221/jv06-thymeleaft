@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="upload" method="post" enctype="multipart/form-data">
+        <input type="file" th:name="img" id="imgInp">
+        <img id="blah" src="" alt="your image" style="width: 100px; height: 100px"/>
+        <button type="submit">Upload</button>
+    </form>
+<script>
+    imgInp.onchange = evt => {
+        const [file] = imgInp.files
+        if (file) {
+            blah.src = URL.createObjectURL(file)
+        }
+    }
+</script>
+</body>
+</html>
