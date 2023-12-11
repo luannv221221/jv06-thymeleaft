@@ -1,14 +1,12 @@
-package com.ra.model.entity;
+package com.ra.model.dto.user.response;
 
-public class User {
+public class UserResponseDTO {
     private int id;
     private String fullName;
     private String email;
-    private String password;
     private String phone;
-
-    private int role;
-    public User() {
+    private Integer role;
+    public UserResponseDTO() {
     }
 
     public int getId() {
@@ -35,14 +33,6 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -51,11 +41,11 @@ public class User {
         this.phone = phone;
     }
 
-    public void setRole(int role) {
-        this.role = role;
+    public Integer getRole() {
+        return role;
     }
 
-    public int getRole() {
-        return role;
+    public void setRole(Integer role) {
+        this.role = role;
     }
 }

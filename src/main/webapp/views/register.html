@@ -21,21 +21,29 @@
             <div th:if="${err != null}" class="alert alert-primary" role="alert">
                 <strong ><span th:text="${err}"></span></strong>
             </div>
-            <form method="post" action="login" th:object="${user}">
+            <form method="post" action="register" th:object="${user}">
+                <div class="form-group">
+                    <label for="exampleInputEmail11">Full Name</label>
+                    <input type="text" class="form-control" th:classappend="${#fields.hasErrors('fullName')} ? 'border-danger' " id="exampleInputEmail11" th:field="*{fullName}" placeholder="Enter email">
+                    <small  class="form-text text-danger" th:errors="*{fullName}"></small>
+                </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" th:field="*{email}" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <small  class="form-text text-danger" th:errors="*{email}"></small>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" th:field="*{password}" id="exampleInputPassword1" placeholder="Password">
+                    <label for="exampleInputEmail11">Phone</label>
+                    <input type="text" class="form-control" id="exampleInputEmail111" th:field="*{phone}" placeholder="Enter email">
+                    <small  class="form-text text-danger" th:errors="*{phone}"></small>
                 </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Nhớ tao</label>
+                <div class="form-group">
+                    <label for="1">Password</label>
+                    <input type="password" class="form-control" th:field="*{password}" id="1" placeholder="Password">
+                    <small  class="form-text text-danger" th:errors="*{password}"></small>
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+
+                <button type="submit" class="btn btn-primary">Register</button>
             </form>
         </div>
     </div>

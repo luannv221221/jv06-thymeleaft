@@ -14,9 +14,8 @@ public class HomeController {
     @Autowired
     private HttpSession session;
     @RequestMapping("/")
-    public String index(Model model){
-        User userFromSession = (User) session.getAttribute("user");
-        model.addAttribute("user",userFromSession);
+    public String index(){
+
         return "home";
     }
 
