@@ -14,6 +14,32 @@
 
 <th:block th:insert="menu.html"></th:block>
 
+<table class="table">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${list}">
+        <td scope="row" th:text="${item.id}"></td>
+        <td th:text="${item.categoryName}"></td>
+        <td th:text="${item.status}"></td>
+        <td>
+            <a class="btn btn-primary" th:href="@{/edit/{id}(id=${item.id})}" role="button">Edit</a>
+            <a  class="btn btn-danger" th:href="@{/delete/{id}(id=${item.id})}" role="button">DELETE</a>
+        </td>
+    </tr>
+    <tr>
+        <td scope="row"></td>
+        <td></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
 
 <div class="jumbotron">
     <h1 class="display-3">Home</h1>

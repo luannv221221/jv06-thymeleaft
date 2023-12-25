@@ -44,6 +44,30 @@ public class UploadController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        // thêm mói sản phẩm như thường
+
         return "form-upload";
+    }
+
+    @GetMapping("/uploads")
+    public String uploads(){
+        return "uploads";
+    }
+    @PostMapping("/uploads")
+    public void postUploads(@RequestParam("images") MultipartFile[] files){
+//        upload ảnh đâị diện
+        // thêm mới sản phẩm vào bảng product (image fileName)
+
+        // upanhr mo ta
+        for (MultipartFile file: files) {
+            String fileName = file.getOriginalFilename();
+            File destination = new File(path + fileName);
+            try {
+                 file.transferTo(destination);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            // thêm mới vào bảng img_product
+        }
     }
 }
